@@ -397,7 +397,7 @@ def run(
     run_id   = str(uuid.uuid4())
     t0       = time.monotonic()
     mock     = _is_mock_mode()
-    to_addr  = recipient or os.environ.get("GMAIL_SENDER", "")
+    to_addr  = recipient or os.environ.get("ALERT_RECIPIENT") or os.environ.get("GMAIL_SENDER", "")
 
     sb = _get_supabase()
     _log_run(sb, run_id, ref, "started")
